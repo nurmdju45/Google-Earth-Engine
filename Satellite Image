@@ -1,0 +1,19 @@
+// Load an image,
+var image= ee.Image('LANDSAT/LC08/C01/T1_TOA/LC08_136045_20151223');
+
+var image= ee.Image('LANDSAT/LC08/C01/T1_TOA/LC08_136044_20151223');
+
+//pre-corrected Landsat data
+
+// Define the visualization parameters.
+//https://landsat.usgs.gov/what-are-band-designations-landsat-satellites
+var vizParams = {
+ bands: [ 'B5', 'B4', 'B3'],
+ min: 0,
+ max: 0.5,
+ gamma: [0.95, 1.1, 1]
+};
+
+// Center the map and display the image.
+Map.setCenter(92.200, 22.633, 10); // Rangamati
+Map.addLayer(image, vizParams, 'false color composite');

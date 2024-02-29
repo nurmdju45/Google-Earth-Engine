@@ -1,0 +1,8 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var image = ee.Image("USGS/SRTMGL1_003"),
+    NDVI = ee.ImageCollection("MODIS/061/MOD13A2");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+print (image)
+Map.addLayer(image, {min:50, max:1000, palette: ("brown, white")},"image")
+print(NDVI)
+Map.addLayer(NDVI, {bands:"NDVI", min:-2000, max: 10000, palette: ("white, brown, green")},"NDVI")

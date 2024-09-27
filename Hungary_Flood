@@ -1,0 +1,43 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var imageVisParam = {"opacity":1,"bands":["VV"],"min":-30,"max":0,"palette":["3790ff","ff1233","43ff6b"]},
+    imageVisParam2 = {"opacity":1,"bands":["VV"],"min":-30,"max":0,"palette":["3790ff","ff1233","43ff6b"]},
+    imageVisParam3 = {"opacity":1,"bands":["VV"],"min":-30,"max":0,"palette":["3790ff","ff1233","43ff6b"]},
+    imageVisParam4 = {"opacity":1,"bands":["VV"],"min":-30,"max":0,"palette":["2d6eff","ff192f","47ff31"]},
+    imageVisParam5 = {"opacity":1,"bands":["VV"],"min":-30,"max":0,"palette":["1f26ff","2fffec","ff1434"]},
+    aoi = ee.FeatureCollection("projects/my-project-1542368526377/assets/Selected_county");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+
+Map.addLayer(aoi,{},'aoi')
+
+var collection = ee.ImageCollection('COPERNICUS/S1_GRD')
+        .filterBounds(aoi)
+        .filter(ee.Filter.listContains('transmitterReceiverPolarisation', "VV"))
+        .select('VV')
+        
+        
+var before = collection.filterDate("2024-09-01" , "2024-09-10").mosaic()
+var after = collection.filterDate("2024-09-18" , "2024-09-19").mosaic()
+
+var before_clip = before.clip(aoi)
+var after_clip = after.clip(aoi)
+
+var before_s = before_clip.focal_median(30, "circle", "meters")
+var after_s = after_clip.focal_median(30, "circle", "meters")
+
+var difference = after_s.subtract(before_s)
+
+var flood_extent = difference.lt(-3)
+var flood = flood_extent.updateMask(flood_extent)
+
+Map.addLayer(before_clip,{min:-30, max:0},"Before_flood")
+Map.addLayer(after_clip,{min:-30, max:0},"After_flood")
+Map.addLayer(difference,{}, "Difference")
+Map.addLayer(flood,{},"Flood")
+
+Export.image.toDrive({
+  image : after_s.float(),
+  description : "Before_flood",
+  scale : 10,
+  maxPixels : 1e13,
+  region : aoi,
+})

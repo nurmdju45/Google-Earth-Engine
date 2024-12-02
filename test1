@@ -17,5 +17,5 @@ var dictionary = {
   location: [19.04, 47.49]
 };
 
-print(dictionary):
-
+print(dictionary);
+print(dictionary.location);

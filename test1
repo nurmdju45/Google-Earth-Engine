@@ -23,4 +23,4 @@
 
 var budapest = ee.Geometry.Point([19.04, 47.49]);
 Map.addLayer(budapest);
-Map.centerObject(budapest);
+Map.centerObject(budapest, 10);

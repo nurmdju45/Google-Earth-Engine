@@ -105,7 +105,7 @@ var image = collection.mean();
 var scaledImage = image.multiply(0.0000275).add(-0.2);
 
 Map.centerObject(geometry, 10);
-Map.addLayer(scaledImage, {min: 0, max: 0.1, 
+Map.addLayer(scaledImage, {min: 0, max: 0.5, 
                             bands: ['SR_B4', 'SR_B3', 'SR_B2']}, 
                             'True color');
 

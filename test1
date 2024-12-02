@@ -8,7 +8,7 @@ print(string);
 
 var list = ['Debrecen', 'Budapest', 'Eger'];
 print(list);
-print (list(1));
+print (list[1];
 
 
 var dictionary = {

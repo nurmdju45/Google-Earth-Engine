@@ -2,6 +2,7 @@
 var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2"),
     geometry = 
     /* color: #98ff00 */
+    /* shown: false */
     /* displayProperties: [
       {
         "type": "rectangle"

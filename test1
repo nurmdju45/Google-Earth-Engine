@@ -1,18 +1,17 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometry = 
-    /* color: #d63000 */
-    /* shown: false */
+var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2"),
+    geometry = 
+    /* color: #98ff00 */
     /* displayProperties: [
       {
         "type": "rectangle"
       }
     ] */
     ee.Geometry.Polygon(
-        [[[18.87383178710937, 47.57326460266318],
-          [18.87383178710937, 47.397865838174],
-          [19.235007324218746, 47.397865838174],
-          [19.235007324218746, 47.57326460266318]]], null, false),
-    landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
+        [[[20.204698921545265, 47.43495628086351],
+          [20.204698921545265, 47.17421268372708],
+          [20.693590523107765, 47.17421268372708],
+          [20.693590523107765, 47.43495628086351]]], null, false);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // var number = 2024;
 // print(number);
@@ -95,7 +94,19 @@ var geometry =
 
 
 
-var collection = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
+var collection = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
+                              .filterDate('2020-09-01', '2020-10-01')
+                              .filterBounds(geometry)
+                              .select('SR_B4', 'SR_B3', 'SR_B2');
+                          
+var image = collection.mean();
+
+var scaledImage = image.multiply(0.0000275).add(-0.2);
+
+Map.centerObject(geometry, 10);
+Map.addLayer(scaledImage, {min: 0, max: 0.5, 
+                            bands: ['SR_B4', 'SR_B3', 'SR_B2']}, 
+                            'True color')
 
 
 

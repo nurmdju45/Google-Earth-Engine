@@ -11,7 +11,8 @@ var geometry =
         [[[18.87383178710937, 47.57326460266318],
           [18.87383178710937, 47.397865838174],
           [19.235007324218746, 47.397865838174],
-          [19.235007324218746, 47.57326460266318]]], null, false);
+          [19.235007324218746, 47.57326460266318]]], null, false),
+    landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // var number = 2024;
 // print(number);
@@ -41,45 +42,69 @@ var geometry =
 // Map.centerObject(budapest, 10);
 
 
-var point = ee.Feature(
-  ee.Geometry.Point([19.04, 47.49]),
-  {name: 'Budapest',
-  population: 1700000
-  }
-  );
+// var point = ee.Feature(
+//   ee.Geometry.Point([19.04, 47.49]),
+//   {name: 'Budapest',
+//   population: 1700000
+//   }
+//   );
   
-print(point);
+// print(point);
 
-var pointsCollection = [
-  ee.Feature(
-  ee.Geometry.Point([19.04, 47.49]),
-  {name: 'Budapest',
-  population: 1700000
-  }
-  ),
+// var pointsCollection = [
+//   ee.Feature(
+//   ee.Geometry.Point([19.04, 47.49]),
+//   {name: 'Budapest',
+//   population: 1700000
+//   }
+//   ),
   
-   ee.Feature ( ee.Geometry.Point([21.6, 47.5]),
-                                {name: 'Debrecen',
-                                 population: 300000
-                                  }),
+//   ee.Feature ( ee.Geometry.Point([21.6, 47.5]),
+//                                 {name: 'Debrecen',
+//                                 population: 300000
+//                                   }),
             
-    ee.Feature(ee.Geometry.LineString([[19.04, 47.49], [21.6, 47.5]]),
-                                      {Name: 'Budapest to Debrecen'}),
+//     ee.Feature(ee.Geometry.LineString([[19.04, 47.49], [21.6, 47.5]]),
+//                                       {Name: 'Budapest to Debrecen'}),
   
-    ee.Feature(ee.Geometry.Polygon([
+//     ee.Feature(ee.Geometry.Polygon([
       
-          [18.87383178710937,47.397865838174],
-          [19.235007324218746,47.397865838174],
-          [19.235007324218746,47.57326460266318],
-          [18.87383178710937,47.57326460266318],
-          [18.87383178710937,47.397865838174]
-      ]),
-      {name:'Budapest'}
+//           [18.87383178710937,47.397865838174],
+//           [19.235007324218746,47.397865838174],
+//           [19.235007324218746,47.57326460266318],
+//           [18.87383178710937,47.57326460266318],
+//           [18.87383178710937,47.397865838174]
+//       ]),
+//       {name:'Budapest'}
       
-      )
-];
+//       )
+// ];
   
-print (pointsCollection);
+// print (pointsCollection);
 
-Map.addLayer (ee.FeatureCollection(pointsCollection));
+// Map.addLayer (ee.FeatureCollection(pointsCollection));
+
+
+
+
+
+
+
+
+
+
+
+
+var collection = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
+
+
+
+
+
+
+
+
+
+
+
 

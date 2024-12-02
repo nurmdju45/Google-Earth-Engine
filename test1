@@ -48,7 +48,7 @@ var pointsCollection = [
                                  population: 300000
                                   })
   
-  ]
+];
   
-print (pointsCollection)
+print (pointsCollection);
 

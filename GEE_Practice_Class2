@@ -13,7 +13,7 @@ var colImage = col.mean().clip(hungary);
 
 
 Map.centerObject(hungary, 7);
-// Map.addLayer(colImage,{min:0, max:5, palette: ['blue', 'white', 'red']}, 'Annual Temp');
+Map.addLayer(colImage,{min:0, max:5, palette: ['blue', 'white', 'red']}, 'Annual Temp');
                             
 var stat = colImage.reduce(ee.Reducer.minMax());
 Map.addLayer(stat);

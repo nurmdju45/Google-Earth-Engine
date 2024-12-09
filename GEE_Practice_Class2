@@ -51,3 +51,14 @@ var panel = ui.Panel({
 });
 
 Map.add(panel);
+
+
+var chartPanel = ui.Panel({
+  widgets: [chart],
+  style: {
+    position: 'bottom-right',
+    bachground: 'white'
+  }
+})
+
+Map.add(chartPanel);

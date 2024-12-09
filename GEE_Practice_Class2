@@ -18,4 +18,8 @@ Map.addLayer(colImage,{min:0, max:5, palette: ['blue', 'white', 'red']}, 'Annual
 var stat = colImage.reduce(ee.Reducer.minMax());
 Map.addLayer(stat);
 
-var chart = 
+var chart = ui.Chart.image.series({
+  imageCollection: col, 
+  region: hungary,
+  
+})

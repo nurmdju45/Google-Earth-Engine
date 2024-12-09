@@ -23,7 +23,7 @@ var chart = ui.Chart.image.series({
   region: hungary,
   reducer: ee.Reducer.mean(),
   scale: 10000,
-  xProperty: 'system:Index'
+  xProperty: 'system:index'
 })
 
 print(chart);

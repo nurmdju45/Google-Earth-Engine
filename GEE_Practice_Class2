@@ -25,3 +25,5 @@ var chart = ui.Chart.image.series({
   scale: 10000,
   xProperty: 'system:Index'
 })
+
+print(chart);

@@ -30,7 +30,7 @@ var chart = ui.Chart.image.series({
   xProperty: 'system:index'
 })
 
-print(chart);
+//print(chart);
 
 chart.setOptions ({
   title: 'Annual Temperature',
@@ -57,7 +57,7 @@ var chartPanel = ui.Panel({
   widgets: [chart],
   style: {
     position: 'bottom-right',
-    bachground: 'white'
+    bachgroundColor: 'white'
   }
 })
 

@@ -8,6 +8,8 @@ print(col)
 
 var colImage = col.mean().clip(hungary);
 
-Map.addLayer(colImage)
+
+Map.centerObject(hungary, 7);
+Map.addLayer(colImage);
                             
 

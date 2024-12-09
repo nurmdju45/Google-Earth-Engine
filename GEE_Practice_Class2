@@ -63,3 +63,17 @@ var chartPanel = ui.Panel({
 })
 
 Map.add(chartPanel);
+
+
+
+
+
+
+Export.image.toDrive({
+  image: colImage,
+  description: 'hungary_annual_temp',
+  //assetID: 'users/nurmdju45/hungary_annual_temp',
+  region: hungary.geometry().bounds(),
+  scale: 10000
+  
+});

@@ -5,7 +5,8 @@ var  col = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR")
                             .filterDate('2023-01-01', '2023-12-31')
                             .filterBounds(hungary)
                             .map(function(image)
-                            {return image.select('temperature_2m').subtract(273.15)});
+                            {return image.select('temperature_2m')
+                            .subtract(273.15)});
 print(col)
 
 var colImage = col.mean().clip(hungary);

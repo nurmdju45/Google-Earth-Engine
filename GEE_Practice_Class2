@@ -6,7 +6,8 @@ var  col = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR")
                             .filterBounds(hungary);
 print(col)
 
+var colImage = col.mean().clip(hungary);
 
-
+Map.addLayer(colImage)
                             
 

@@ -3,7 +3,7 @@ var hungary = ee.FeatureCollection("FAO/GAUL/2015/level0")
 
 var  col = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR")
                             .filterDate('2023-01-01', '2023-12-31')
-                            .filterBounds(hungary);
+                            .filterBounds(hungary)
                             .select('temperature_2m');
 print(col)
 

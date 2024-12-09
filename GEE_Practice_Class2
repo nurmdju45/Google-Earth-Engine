@@ -25,7 +25,7 @@ var stat = colImage.reduce(ee.Reducer.minMax());
 var chart = ui.Chart.image.series({
   imageCollection: col, 
   region: hungary,
-  reducer: ee.Reducer.mean(),
+  reducer: ee.Reducer.minMax(),
   scale: 10000,
   xProperty: 'system:index'
 })

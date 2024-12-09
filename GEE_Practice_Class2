@@ -1,0 +1,1 @@
+var = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR")

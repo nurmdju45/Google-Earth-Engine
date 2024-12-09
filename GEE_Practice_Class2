@@ -21,5 +21,7 @@ Map.addLayer(stat);
 var chart = ui.Chart.image.series({
   imageCollection: col, 
   region: hungary,
-  
-})
+  reducer: ee.Reducer.mean(),
+  scale: 1000
+}
+  image})

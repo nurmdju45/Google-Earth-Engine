@@ -5,5 +5,8 @@ var  col = ee.ImageCollection("ECMWF/ERA5_LAND/MONTHLY_AGGR")
                             .filterDate('2023-01-01', '2023-12-31')
                             .filterBounds(hungary);
 print(col)
+
+
+
                             
 

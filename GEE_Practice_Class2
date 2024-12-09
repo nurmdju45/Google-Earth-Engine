@@ -22,6 +22,7 @@ var chart = ui.Chart.image.series({
   imageCollection: col, 
   region: hungary,
   reducer: ee.Reducer.mean(),
-  scale: 1000
+  scale: 10000,
+  xProperty: 'system:Index'
 }
   image})

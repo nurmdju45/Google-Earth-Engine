@@ -57,7 +57,7 @@ var chartPanel = ui.Panel({
   widgets: [chart],
   style: {
     position: 'bottom-right',
-    bachgroundColor: 'white'
+    backgroundColor: 'white'
   }
 })
 

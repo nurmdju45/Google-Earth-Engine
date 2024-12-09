@@ -32,4 +32,5 @@ chart.setOptions ({
   title: 'Annual Temperature',
   hAxis: {title: 'Month'},
   vAxis: {title: 'Mean Temperature in Celcius Degree'}
+  legend: {position: 'none}'
 });

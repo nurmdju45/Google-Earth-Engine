@@ -38,3 +38,16 @@ chart.setOptions ({
   vAxis: {title: 'Mean Temperature in Celcius Degree'},
   // legend: {position: 'none'}
 });
+
+
+var title = ui.Label(
+  {value: 'Temperature Analysis',
+  style: {}
+})
+
+var panel = ui.Panel({
+  widgets: [title],
+  style: {}
+});
+
+Map.add(panel);
